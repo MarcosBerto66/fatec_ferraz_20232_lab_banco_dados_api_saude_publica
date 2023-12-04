@@ -1,0 +1,76 @@
+use api_saude_publica
+
+db.createCollection("ocorrencias");
+
+db.ocorrencias.insertMany([
+{
+    "tipoDoenca": "COVID-19",
+    "localizacao": {
+        "latitude": -23.5303,
+        "longitude": -46.3688
+    },
+    "sintomas": ["Febre", "Tosse", "Fadiga"],
+    "dataRegistro": "2023-12-01",
+    "status": "Confirmado",
+    "paciente": {
+        "nome": "Mario Silva",
+        "idade": 35,
+        "sexo": "Masculino",
+        "contato": "+55 11 98765-4321"
+    },
+    "fonteDados": "Hospital Central"
+},
+{
+    "tipoDoenca": "Gripe",
+    "localizacao": {
+        "latitude": -23.5598,
+        "longitude": -46.6768
+    },
+    "sintomas": ["Dor de garganta", "Coriza", "Mal-estar"],
+    "dataRegistro": "2023-11-24",
+    "status": "Suspeito",
+    "paciente": {
+        "nome": "Maria Oliveira",
+        "idade": 28,
+        "sexo": "Feminino"
+    },
+    "fonteDados": "Unidade de Saúde Primeiro de Outubro"
+},
+{
+    "tipoDoenca": "COVID-19",
+    "localizacao": {
+        "latitude": -23.4567,
+        "longitude": -46.7890
+    },
+    "sintomas": ["Dor de cabeça", "Perda de olfato", "Dificuldade respiratória"],
+    "dataRegistro": "2023-12-15",
+    "status": "Suspeito",
+    "paciente": {
+        "nome": "Ana Souza",
+        "idade": 40,
+        "sexo": "Feminino"
+    },
+    "fonteDados": "Clínica São Lucas"
+},
+{
+    "tipoDoenca": "Gripe",
+    "localizacao": {
+        "latitude": -23.6000,
+        "longitude": -46.7000
+    },
+    "sintomas": ["Febre", "Dor no corpo", "Tosse seca"],
+    "dataRegistro": "2023-12-05",
+    "status": "Confirmado",
+    "paciente": {
+        "nome": "Pedro Santos",
+        "idade": 32,
+        "sexo": "Masculino",
+        "contato": "+55 11 12345-6789"
+    },
+    "fonteDados": "Hospital Santa Maria"
+}
+])
+
+db.ocorrencias.find({ "tipoDoenca": "COVID-19" });
+db.ocorrencias.find({ "sintomas": "Febre" });
+
